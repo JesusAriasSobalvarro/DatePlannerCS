@@ -1,0 +1,24 @@
+{
+  "name": "client-date-planner",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "bootstrap-timepicker": "^0.5.2",
+    "moment-timezone": "^0.5.25",
+    "rc-datetime-picker": "^1.6.1",
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-datetime": "^2.16.3",
+    "react-dom": "^16.8.6",
+    "react-scripts": "^0.9.5",
+    "tempusdominus-bootstrap-4": "^5.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

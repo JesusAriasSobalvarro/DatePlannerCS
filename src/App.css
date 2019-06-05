@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.Event-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: blue;
+}
+
+.New-date-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  background-color: aqua;
+  justify-content: center;
+}
+
+.New-date-card {
+  align-content: start;
+  padding: 20px;
+  width: 50%;
+}
+
+.New-date-label {
+  align-self: flex-start;
+}
+
+.New-date-label-and-input {
+  display:flex;
+  flex-direction: column;
+  
+  
+}
+
+.New-date-input {
+  margin-bottom: 20px;
+}
+
+.New-date-places-container {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+}
+
+.New-date-places-container::-webkit-scrollbar {
+  display: none;
+}
+
+.New-date-place-container {
+  padding: 10px;
+  background-color: white;
+  margin: 0px 20px 0px 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgray;
+  border-radius: 5px;
+}
+
+.New-date-place-picture{
+  max-height: 300px;
+}
