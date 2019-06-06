@@ -26,16 +26,27 @@
 .Event-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 10px;
-  background-color: blue;
+  flex-direction: column;
+}
+
+.Event-card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 0px 20px 0px;
+}
+
+.Event-card {
+ margin: 0px 5px 0px 5px; 
+ padding: 5px;
 }
 
 .New-date-container {
   padding-top: 10px;
   padding-bottom: 10px;
   display: flex;
-  background-color: aqua;
   justify-content: center;
 }
 
@@ -43,6 +54,10 @@
   align-content: start;
   padding: 20px;
   width: 50%;
+  border: solid;
+  border-radius: 10px;
+  border-color: 	#DCDCDC;
+  border-width: 1px;
 }
 
 .New-date-label {
@@ -51,9 +66,7 @@
 
 .New-date-label-and-input {
   display:flex;
-  flex-direction: column;
-  
-  
+  flex-direction: column;  
 }
 
 .New-date-input {
@@ -65,6 +78,8 @@
   display: flex;
   align-items: center;
   overflow-x: scroll;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .New-date-places-container::-webkit-scrollbar {
@@ -77,10 +92,49 @@
   margin: 0px 20px 0px 20px;
   border-style: solid;
   border-width: 1px;
-  border-color: lightgray;
+  border-color: #DCDCDC;
+  border-radius: 5px;
+}
+
+.New-date-place-container-selected {
+  padding: 10px;
+  background-color: white;
+  margin: 0px 20px 0px 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #138496;
   border-radius: 5px;
 }
 
 .New-date-place-picture{
   max-height: 300px;
+}
+
+.New-date-place-name {
+  margin-top: 15px;
+}
+
+.Title {
+  margin-top: 20px;
+}
+
+.Modal-pictures-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.Modal-picture {
+  height: 150px;
+  width: 250px;
+  display: flex;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 5px 5px 5px 5px;
+}
+
+.width50 {
+    max-width: 100%;    
 }

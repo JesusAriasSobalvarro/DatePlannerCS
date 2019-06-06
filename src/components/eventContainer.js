@@ -18,7 +18,7 @@ class EventContainer extends Component {
   render() {
   
     return (
-      <div className="card">
+      <div className="card Event-card">
         <p>{this.props.event_name}</p>
         <p>{this.props.event_description}</p>
         <p>{this.props.event_date}</p>

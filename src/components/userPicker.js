@@ -28,7 +28,6 @@ class UserPicker extends Component {
 );
     return (
       <div>
-        <p>Hola</p>
         <Dropdown>
   <Dropdown.Toggle variant="success" id="dropdown-basic">{this.state.selected_user}</Dropdown.Toggle>
 
