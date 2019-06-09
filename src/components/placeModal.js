@@ -20,7 +20,7 @@ class PlaceModal extends Component {
 
   componentWillReceiveProps({ modal_visible, id_place }) {
     if (id_place !== -1) {
-      var request = new Request(URL + '/places/pictures/' + id_place, {
+      var request = new Request(URL + 'places/pictures/' + id_place, {
         method: 'GET'
       })
       fetch(request)
