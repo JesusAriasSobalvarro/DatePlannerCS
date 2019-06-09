@@ -4,19 +4,12 @@ class EventContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      'events_list' : {}
+      'events_list': {}
     }
 
   }
 
-  componentDidUpdate(props) {
-    console.log(props)
-  }
-
-
-
   render() {
-  
     return (
       <div className="card Event-card">
         <p>{this.props.event_name}</p>
@@ -24,7 +17,6 @@ class EventContainer extends Component {
         <p>{this.props.event_date}</p>
         <p>{this.props.event_place}</p>
       </div>
-      
     );
   }
 }

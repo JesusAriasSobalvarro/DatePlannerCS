@@ -17,17 +17,16 @@ class NewDate extends Component {
   }
 
   componentDidMount() {
-    console.log('Component new Date Mounted')
     this.props.requestRestaurantList()
   }
 
   placeClicked(id_place, e) {
     e.preventDefault()
-    if (e.target === e.currentTarget){
-    this.setState({
-      'id_place': id_place
-    }) 
-  }
+    if (e.target === e.currentTarget) {
+      this.setState({
+        'id_place': id_place
+      })
+    }
   }
 
   setDate(moment) {
@@ -45,33 +44,17 @@ class NewDate extends Component {
   }
 
   submitDate() {
-    // var request = new Request('http://localhost:5000/events/', {
-    //   method : 'POST',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(this.state)
-    // })
-    // fetch(request)
-    // .then(res => res.json())
-    // .then(json => {
-    //   console.log(json)
-    // })
-    
+
     var isDate = false
     var date = Date.parse(this.state.event_date_time);
-    if(isNaN(date))
-    isDate = false
+    if (isNaN(date))
+      isDate = false
     else
-    isDate = true
-
-    
+      isDate = true
 
     if ((this.state.id_place !== -1) && (this.state.event_name !== '') && (this.state.event_description !== '') && isDate) {
       this.props.addUserEvent(this.state)
     }
-
 
     this.setState({
       'id_place': -1,
@@ -83,20 +66,20 @@ class NewDate extends Component {
 
   handleModalOpened(place_id) {
     this.setState({
-      'id_place' : -1
+      'id_place': -1
     })
     this.props.open_place_modal(place_id)
   }
 
   render() {
+
     const restaurants = Array.from(this.props.restaurants_list)
     const listRestaurants = restaurants.map((restaurant) =>
       <div key={restaurant.id_place} className={"New-date-place-container" + (this.state.id_place === restaurant.id_place ? "-selected" : "")} onClick={(e) => this.placeClicked(restaurant.id_place, e)}>
         <Image src={restaurant.picture_url} className="New-date-place-picture"></Image>
         <p className="New-date-place-name">{restaurant.place_name}</p>
         <Button variant="outline-info" onClick={() => this.handleModalOpened(restaurant.id_place)} >Info</Button>
-      </div>
-    )
+      </div> )
 
     return (
       <div className="New-date-container">

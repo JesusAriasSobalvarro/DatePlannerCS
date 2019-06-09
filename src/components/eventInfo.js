@@ -4,7 +4,6 @@ class EventInfo extends Component {
   constructor() {
     super()
     this.state = {
-      
     }
   }
 
@@ -13,7 +12,6 @@ class EventInfo extends Component {
       <div>
         <p>{this.props.event_info.event_description}</p>
       </div>
-      
     );
   }
 }
