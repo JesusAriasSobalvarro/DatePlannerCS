@@ -115,7 +115,7 @@
 }
 
 .Title {
-  margin-top: 20px;
+  margin-top: 35px;
 }
 
 .Modal-pictures-container {
@@ -137,4 +137,16 @@
 
 .width50 {
     max-width: 100%;    
+}
+
+.Picker-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0px 20px 0px;
+}
+
+.Picker-title {
+  display: flex;
+  text-align: center;
 }

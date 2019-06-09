@@ -15,13 +15,16 @@ class App extends Component {
       'events_list' : {},
       'restaurants_list' : {},
       'modal_visible' : false,
-      'modal_id_place' : -1
+      'modal_id_place' : -1,
+      'user_id' : -1
     }
     
     this.requestEventsForUsers = this.requestEventsForUsers.bind(this)
     this.requestRestaurantList = this.requestRestaurantList.bind(this)
     this.handleModalOpen = this.handleModalOpen.bind(this)
     this.handleModalClose = this.handleModalClose.bind(this)
+    this.setUserId = this.setUserId.bind(this)
+    this.addUserEvent = this.addUserEvent.bind(this)
   }
 
   componentDidMount() {
@@ -95,6 +98,36 @@ class App extends Component {
     })
   }
 
+  setUserId(id) {
+    console.log('Selected user -> ' + id)
+    this.setState({
+      'user_id' : id
+    })
+  }
+
+  addUserEvent(eventInfo) {
+    if (this.state.user_id !== -1) {
+    let obj1 = eventInfo
+    let obj2 = {'user_id' : this.state.user_id}
+    let combined = {... obj1, ... obj2}
+    console.log(combined)
+     var request = new Request('http://localhost:5000/events/', {
+      method : 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(combined)
+    })
+    fetch(request)
+    .then(res => res.json())
+    .then(json => {
+      this.requestEventsForUsers(this.state.user_id)
+    })
+    }
+
+  }
+
   render() {
       var arr = this.state.events_list
       var elements=[];
@@ -119,9 +152,10 @@ class App extends Component {
       
       <div className="App">
 
-        <UserPicker users_list={this.state.users_list} requestEvents={this.requestEventsForUsers} />
+        <UserPicker users_list={this.state.users_list} requestEvents={this.requestEventsForUsers} setUserId={this.setUserId}/>
         <h3 className="Title">Plan A Date:</h3>
-        <NewDate restaurants_list={this.state.restaurants_list} requestRestaurantList={this.requestRestaurantList} open_place_modal={this.handleModalOpen} />
+        <NewDate restaurants_list={this.state.restaurants_list} requestRestaurantList={this.requestRestaurantList} open_place_modal={this.handleModalOpen}
+        addUserEvent={this.addUserEvent} />
         <div className="Event-container">
         <h3>Upcomming dates:</h3>
         <div className="Event-card-container">{elements}</div>

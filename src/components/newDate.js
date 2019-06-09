@@ -31,10 +31,10 @@ class NewDate extends Component {
   }
 
   setDate(moment) {
-    var date
+    var date = ''
 
     if (moment !== undefined) {
-      date = moment._d
+      date = moment.format('MM/DD/YYYY h:mm:ss A')
     } else {
       date = ''
     }
@@ -45,6 +45,34 @@ class NewDate extends Component {
   }
 
   submitDate() {
+    // var request = new Request('http://localhost:5000/events/', {
+    //   method : 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(this.state)
+    // })
+    // fetch(request)
+    // .then(res => res.json())
+    // .then(json => {
+    //   console.log(json)
+    // })
+    
+    var isDate = false
+    var date = Date.parse(this.state.event_date_time);
+    if(isNaN(date))
+    isDate = false
+    else
+    isDate = true
+
+    
+
+    if ((this.state.id_place !== -1) && (this.state.event_name !== '') && (this.state.event_description !== '') && isDate) {
+      this.props.addUserEvent(this.state)
+    }
+
+
     this.setState({
       'id_place': -1,
       'event_name': '',

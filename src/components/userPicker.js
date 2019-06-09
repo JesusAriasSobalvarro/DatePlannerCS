@@ -14,6 +14,8 @@ class UserPicker extends Component {
       "selected_user" : username
     })
 
+    console.log('Selected user from picker -> ' + id)
+    this.props.setUserId(id)
     this.props.requestEvents(id)   
   }
 
@@ -21,13 +23,14 @@ class UserPicker extends Component {
     const  users = Array.from (this.props.users_list)
     const listItems = users.map((user) =>
     
-    <Dropdown.Item key={user.id_user} onClick={() => this.select_user(user.first_name + " " + user.last_name, user.id_user)}>
+    <Dropdown.Item key={user.id_user} onClick={() => this.select_user(user.first_name + " " + user.last_name, user.id_user, user.id_user)}>
       {user.first_name + " " + user.last_name}
     </Dropdown.Item>
     
 );
     return (
-      <div>
+      <div className="Picker-container">
+      
         <Dropdown>
   <Dropdown.Toggle variant="success" id="dropdown-basic">{this.state.selected_user}</Dropdown.Toggle>
 
