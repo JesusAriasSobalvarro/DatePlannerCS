@@ -45,7 +45,7 @@ class App extends Component {
   }
 
   requestEventsForUsers(id) {
-    var request = new Request(URL + '/events/' + id, {
+    var request = new Request(URL + 'events/' + id, {
       method: 'GET'
     })
     fetch(request)
@@ -99,7 +99,7 @@ class App extends Component {
       let obj1 = eventInfo
       let obj2 = { 'user_id': this.state.user_id }
       let combined = { ...obj1, ...obj2 }
-      var request = new Request(URL + '/events/', {
+      var request = new Request(URL + 'events/', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

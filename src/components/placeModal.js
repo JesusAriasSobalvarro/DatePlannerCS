@@ -19,30 +19,31 @@ class PlaceModal extends Component {
   }
 
   componentWillReceiveProps({ modal_visible, id_place }) {
-    var request = new Request(URL + '/places/pictures/' + id_place, {
-      method: 'GET'
-    })
-    fetch(request)
-      .then(res => res.json())
-      .then(json => {
-        const restaurants = Array.from(json)
-        if (restaurants.length !== 0) {
-          this.setState({
-            'place_name': restaurants[0].places_table.place_name,
-            'place_description': restaurants[0].places_table.description,
-            'place_address': restaurants[0].places_table.address,
-            'place_picture': json
-          })
-        }
+    if (id_place !== -1) {
+      var request = new Request(URL + '/places/pictures/' + id_place, {
+        method: 'GET'
       })
-      .catch(err => {
-        console.log(err)
+      fetch(request)
+        .then(res => res.json())
+        .then(json => {
+          const restaurants = Array.from(json)
+          if (restaurants.length !== 0) {
+            this.setState({
+              'place_name': restaurants[0].places_table.place_name,
+              'place_description': restaurants[0].places_table.description,
+              'place_address': restaurants[0].places_table.address,
+              'place_picture': json
+            })
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      this.setState({
+        'modal_visible': modal_visible,
+        'place_id': id_place
       })
-    this.setState({
-      'modal_visible': modal_visible,
-      'place_id': id_place
-    })
-  
+    }
   }
 
   render() {
