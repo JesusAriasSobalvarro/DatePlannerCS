@@ -39,11 +39,11 @@ class PlaceModal extends Component {
         .catch(err => {
           console.log(err)
         })
-      this.setState({
-        'modal_visible': modal_visible,
-        'place_id': id_place
-      })
     }
+    this.setState({
+      'modal_visible': modal_visible,
+      'place_id': id_place
+    })
   }
 
   render() {
