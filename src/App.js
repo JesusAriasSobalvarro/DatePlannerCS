@@ -108,12 +108,10 @@ class App extends Component {
         body: JSON.stringify(combined)
       })
       fetch(request)
-        .then(res => res.json())
         .then(json => {
           this.requestEventsForUsers(this.state.user_id)
         })
     }
-
   }
 
   render() {
