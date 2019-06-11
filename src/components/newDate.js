@@ -30,10 +30,11 @@ class NewDate extends Component {
   }
 
   setDate(moment) {
+    console.log("DATE SET")
     var date = ''
 
     if (moment !== undefined) {
-      date = moment.format('MM/DD/YYYY h:mm:ss A')
+      date = moment._d
     } else {
       date = ''
     }
@@ -72,7 +73,7 @@ class NewDate extends Component {
   }
 
   render() {
-
+    
     const restaurants = Array.from(this.props.restaurants_list)
     const listRestaurants = restaurants.map((restaurant) =>
       <div key={restaurant.id_place} className={"New-date-place-container" + (this.state.id_place === restaurant.id_place ? "-selected" : "")} onClick={(e) => this.placeClicked(restaurant.id_place, e)}>
