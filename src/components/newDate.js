@@ -30,12 +30,14 @@ class NewDate extends Component {
   }
 
   setDate(moment) {
-    console.log("DATE SET")
     var date = ''
 
+    try {
     if (moment !== undefined) {
       date = moment._d
     } else {
+      date = ''
+    }} catch {
       date = ''
     }
 
