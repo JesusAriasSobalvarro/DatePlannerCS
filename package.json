@@ -8,7 +8,7 @@
     "braces": "^3.0.2",
     "js-yaml": "^3.13.1",
     "mime": "^2.4.3",
-    "moment-timezone": "^0.5.25",
+    "moment-timezone": "^0.5.35",
     "rc-datetime-picker": "^1.6.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
